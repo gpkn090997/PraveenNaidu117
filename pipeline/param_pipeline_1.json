@@ -70,6 +70,9 @@
 			},
 			"pp_input_filename": {
 				"type": "string"
+			},
+			"pp_ouput_filesystem": {
+				"type": "string"
 			}
 		},
 		"annotations": []
