@@ -61,6 +61,17 @@
 				]
 			}
 		],
+		"parameters": {
+			"pp_input_filesystem": {
+				"type": "string"
+			},
+			"pp_input_directory": {
+				"type": "string"
+			},
+			"pp_input_filename": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
