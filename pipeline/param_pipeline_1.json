@@ -56,7 +56,21 @@
 				"outputs": [
 					{
 						"referenceName": "Sink_Dataset_Param",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"ds_output_filesystem": {
+								"value": "@pipeline().parameters.pp_ouput_filesystem",
+								"type": "Expression"
+							},
+							"ds_ouput_directory": {
+								"value": "@pipeline().parameters.pp_output_directory",
+								"type": "Expression"
+							},
+							"ds_output_filename": {
+								"value": "@pipeline().parameters.pp_ouput_filename",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
