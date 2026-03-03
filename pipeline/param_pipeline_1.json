@@ -73,6 +73,12 @@
 			},
 			"pp_ouput_filesystem": {
 				"type": "string"
+			},
+			"pp_output_directory": {
+				"type": "string"
+			},
+			"pp_ouput_filename": {
+				"type": "string"
 			}
 		},
 		"annotations": []
