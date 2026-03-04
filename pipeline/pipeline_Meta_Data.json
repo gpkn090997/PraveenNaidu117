@@ -152,16 +152,20 @@
 		],
 		"parameters": {
 			"pp_filesystem": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "inputdata1"
 			},
 			"pp_directory": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Input_Meta_Data"
 			},
 			"pp_filename": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "SalesLTAddress.txt"
 			},
 			"pp_directory_out": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Output_MetaData"
 			}
 		},
 		"annotations": []
