@@ -95,8 +95,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "Products.txt"
+			"schema": "SalesLT",
+			"table": "Products"
 		}
 	}
 }
