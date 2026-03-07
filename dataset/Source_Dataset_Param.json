@@ -9,10 +9,10 @@
 			"ds_input_filesystem": {
 				"type": "string"
 			},
-			"ds_input_directory": {
+			"ds_input_filename": {
 				"type": "string"
 			},
-			"ds_input_filename": {
+			"ds_input_directory": {
 				"type": "string"
 			},
 			"ds_output_directory": {
@@ -29,7 +29,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().ds_output_directory",
+					"value": "@dataset().ds_input_directory",
 					"type": "Expression"
 				},
 				"fileSystem": {
