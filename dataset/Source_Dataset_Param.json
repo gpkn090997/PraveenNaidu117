@@ -14,9 +14,6 @@
 			},
 			"ds_input_directory": {
 				"type": "string"
-			},
-			"ds_output_directory": {
-				"type": "string"
 			}
 		},
 		"annotations": [],
