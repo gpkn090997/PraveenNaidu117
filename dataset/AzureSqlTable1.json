@@ -95,8 +95,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "SalesLT",
-			"table": "Products"
+			"schema": "Sales",
+			"table": "Address"
 		}
 	}
 }
