@@ -1,0 +1,49 @@
+{
+	"name": "AzureSqlTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "project",
+				"type": "varchar"
+			},
+			{
+				"name": "src_cont",
+				"type": "varchar"
+			},
+			{
+				"name": "src_dir",
+				"type": "varchar"
+			},
+			{
+				"name": "src_folder",
+				"type": "varchar"
+			},
+			{
+				"name": "tgt_folder",
+				"type": "varchar"
+			},
+			{
+				"name": "tgt_dir",
+				"type": "varchar"
+			},
+			{
+				"name": "filename",
+				"type": "varchar"
+			},
+			{
+				"name": "status",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "project",
+			"table": "config"
+		}
+	}
+}
