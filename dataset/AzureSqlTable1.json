@@ -96,7 +96,7 @@
 		],
 		"typeProperties": {
 			"schema": "Sales",
-			"table": "Address1"
+			"table": "Products"
 		}
 	}
 }
