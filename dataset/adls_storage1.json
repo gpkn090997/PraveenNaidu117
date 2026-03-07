@@ -11,8 +11,8 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "productconfig.csv",
-				"folderPath": "Input",
-				"fileSystem": "inputdata1"
+				"folderPath": "input",
+				"fileSystem": "project"
 			},
 			"columnDelimiter": "\t",
 			"rowDelimiter": "\n",
