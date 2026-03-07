@@ -14,6 +14,9 @@
 			},
 			"ds_input_filename": {
 				"type": "string"
+			},
+			"ds_output_directory": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -26,7 +29,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().ds_input_directory",
+					"value": "@dataset().ds_output_directory",
 					"type": "Expression"
 				},
 				"fileSystem": {
