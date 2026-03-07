@@ -1,5 +1,5 @@
 {
-	"name": "adls_sql_pipeline",
+	"name": "adls_sql_pipeline_copy_activities",
 	"properties": {
 		"activities": [
 			{
