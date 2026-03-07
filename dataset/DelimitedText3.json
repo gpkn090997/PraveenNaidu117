@@ -1,5 +1,5 @@
 {
-	"name": "adls_storage",
+	"name": "DelimitedText3",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "SalesLTCustomer.txt",
 				"folderPath": "input",
 				"fileSystem": "project"
 			},
