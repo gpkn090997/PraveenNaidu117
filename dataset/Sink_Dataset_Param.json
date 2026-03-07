@@ -11,6 +11,9 @@
 			},
 			"ds_ouput_directory": {
 				"type": "string"
+			},
+			"ds_output_filename": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -18,6 +21,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().ds_output_filename",
+					"type": "Expression"
+				},
 				"folderPath": {
 					"value": "@dataset().ds_ouput_directory",
 					"type": "Expression"
