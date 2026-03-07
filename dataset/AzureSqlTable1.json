@@ -95,8 +95,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "Sales",
-			"table": "Products"
+			"schema": "project",
+			"table": "config"
 		}
 	}
 }
