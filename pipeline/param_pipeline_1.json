@@ -80,6 +80,10 @@
 							"ds_ouput_directory": {
 								"value": "@pipeline().parameters.pp_output_directory",
 								"type": "Expression"
+							},
+							"ds_output_filename": {
+								"value": "@pipeline().parameters.pp_input_filename",
+								"type": "Expression"
 							}
 						}
 					}
