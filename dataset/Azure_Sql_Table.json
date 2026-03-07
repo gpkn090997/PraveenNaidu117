@@ -43,7 +43,7 @@
 		],
 		"typeProperties": {
 			"schema": "project",
-			"table": "config"
+			"table": "config2"
 		}
 	}
 }
