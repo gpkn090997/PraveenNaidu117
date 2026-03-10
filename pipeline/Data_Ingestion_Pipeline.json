@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from [Project].[config] where status = 'Active' and project = 'sales'",
+						"sqlReaderQuery": "select * from [project].[config2]\nwhere status = 'active' and project = 'sales';",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
