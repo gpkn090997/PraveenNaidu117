@@ -27,6 +27,62 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "ForEach3",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup3",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup3').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Execute Pipeline3",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "param_pipeline_1",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"pp_input_filesystem": {
+										"value": "@item().src_cont",
+										"type": "Expression"
+									},
+									"pp_input_directory": {
+										"value": "@item().src_dir\r\n",
+										"type": "Expression"
+									},
+									"pp_input_filename": {
+										"value": "@item().filename\r\n",
+										"type": "Expression"
+									},
+									"pp_output_directory": {
+										"value": "@item().tgt_dir\r\n",
+										"type": "Expression"
+									}
+								}
+							}
+						}
+					]
+				}
 			}
 		],
 		"annotations": []
