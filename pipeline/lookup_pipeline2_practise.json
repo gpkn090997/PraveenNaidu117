@@ -73,7 +73,11 @@
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": "select * from [project].[config2]\nwhere status = 'active' and project = 'sales';",
 						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"partitionOption": "DynamicRange",
+						"partitionSettings": {
+							"partitionUpperBound": "",
+							"partitionLowerBound": ""
+						}
 					},
 					"dataset": {
 						"referenceName": "Azure_Sql_Table",
