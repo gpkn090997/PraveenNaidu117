@@ -22,12 +22,27 @@
 							"recursive": true
 						},
 						"formatSettings": {
-							"type": "BinaryReadSettings"
+							"type": "BinaryReadSettings",
+							"compressionProperties": {
+								"type": "ZipDeflateReadSettings"
+							}
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
 						}
 					},
 					"enableStaging": false
 				},
 				"inputs": [
+					{
+						"referenceName": "Binary_Data",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
 					{
 						"referenceName": "Binary_Data",
 						"type": "DatasetReference"
