@@ -1,0 +1,19 @@
+{
+	"name": "Binary_Data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "AdventureWorksLTDEPOC.zip",
+				"folderPath": "Source",
+				"fileSystem": "project"
+			}
+		}
+	}
+}
