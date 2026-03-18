@@ -142,14 +142,9 @@
 														}
 													},
 													"sink": {
-														"type": "DelimitedTextSink",
+														"type": "BinarySink",
 														"storeSettings": {
 															"type": "AzureBlobFSWriteSettings"
-														},
-														"formatSettings": {
-															"type": "DelimitedTextWriteSettings",
-															"quoteAllText": true,
-															"fileExtension": ".txt"
 														}
 													},
 													"enableStaging": false
@@ -162,7 +157,7 @@
 												],
 												"outputs": [
 													{
-														"referenceName": "Sales1",
+														"referenceName": "Sales2",
 														"type": "DatasetReference"
 													}
 												]
@@ -173,7 +168,7 @@
 										"value": "Others",
 										"activities": [
 											{
-												"name": "Copy data3",
+												"name": "Copy data5",
 												"type": "Copy",
 												"dependsOn": [],
 												"policy": {
@@ -196,14 +191,9 @@
 														}
 													},
 													"sink": {
-														"type": "DelimitedTextSink",
+														"type": "BinarySink",
 														"storeSettings": {
 															"type": "AzureBlobFSWriteSettings"
-														},
-														"formatSettings": {
-															"type": "DelimitedTextWriteSettings",
-															"quoteAllText": true,
-															"fileExtension": ".txt"
 														}
 													},
 													"enableStaging": false
@@ -216,7 +206,7 @@
 												],
 												"outputs": [
 													{
-														"referenceName": "Others",
+														"referenceName": "Others1",
 														"type": "DatasetReference"
 													}
 												]
