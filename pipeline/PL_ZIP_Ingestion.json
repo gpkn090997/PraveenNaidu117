@@ -152,14 +152,9 @@
 									}
 								},
 								"sink": {
-									"type": "DelimitedTextSink",
+									"type": "BinarySink",
 									"storeSettings": {
 										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
 									}
 								},
 								"enableStaging": false
@@ -172,7 +167,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "Sales_Dataset",
+									"referenceName": "Binary1",
 									"type": "DatasetReference"
 								}
 							]
@@ -208,14 +203,9 @@
 									}
 								},
 								"sink": {
-									"type": "DelimitedTextSink",
+									"type": "BinarySink",
 									"storeSettings": {
 										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
 									}
 								},
 								"enableStaging": false
@@ -228,7 +218,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "Others_1",
+									"referenceName": "Binary2",
 									"type": "DatasetReference"
 								}
 							]
