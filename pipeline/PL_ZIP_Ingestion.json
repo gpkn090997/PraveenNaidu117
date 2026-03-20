@@ -79,6 +79,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -105,151 +106,19 @@
 					},
 					"activities": [
 						{
-							"name": "Routefilebytype",
-							"type": "Switch",
+							"name": "Filter_files",
+							"type": "Filter",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"on": {
-									"value": "@if(\n    or(endswith(item().name, '.json'), or(endswith(item().name, '.xml'), endswith(item().name, '.png'))),\n    'Restricted',\n    if(\n        and(startswith(item().name, 'SalesLT'), endswith(item().name, '.txt')),\n        'Sales',\n        'Others'\n    )\n)",
+								"items": {
+									"value": "@activity('Get Metadata1').output.childItems",
 									"type": "Expression"
 								},
-								"cases": [
-									{
-										"value": "Sales",
-										"activities": [
-											{
-												"name": "Copy data4",
-												"type": "Copy",
-												"dependsOn": [],
-												"policy": {
-													"timeout": "0.12:00:00",
-													"retry": 0,
-													"retryIntervalInSeconds": 30,
-													"secureOutput": false,
-													"secureInput": false
-												},
-												"userProperties": [],
-												"typeProperties": {
-													"source": {
-														"type": "BinarySource",
-														"storeSettings": {
-															"type": "AzureBlobFSReadSettings",
-															"recursive": true
-														},
-														"formatSettings": {
-															"type": "BinaryReadSettings"
-														}
-													},
-													"sink": {
-														"type": "BinarySink",
-														"storeSettings": {
-															"type": "AzureBlobFSWriteSettings"
-														}
-													},
-													"enableStaging": false
-												},
-												"inputs": [
-													{
-														"referenceName": "Binary_Sink",
-														"type": "DatasetReference"
-													}
-												],
-												"outputs": [
-													{
-														"referenceName": "Sales2",
-														"type": "DatasetReference"
-													}
-												]
-											}
-										]
-									},
-									{
-										"value": "Others",
-										"activities": [
-											{
-												"name": "Copy data5",
-												"type": "Copy",
-												"dependsOn": [],
-												"policy": {
-													"timeout": "0.12:00:00",
-													"retry": 0,
-													"retryIntervalInSeconds": 30,
-													"secureOutput": false,
-													"secureInput": false
-												},
-												"userProperties": [],
-												"typeProperties": {
-													"source": {
-														"type": "BinarySource",
-														"storeSettings": {
-															"type": "AzureBlobFSReadSettings",
-															"recursive": true
-														},
-														"formatSettings": {
-															"type": "BinaryReadSettings"
-														}
-													},
-													"sink": {
-														"type": "BinarySink",
-														"storeSettings": {
-															"type": "AzureBlobFSWriteSettings"
-														}
-													},
-													"enableStaging": false
-												},
-												"inputs": [
-													{
-														"referenceName": "Binary_Sink",
-														"type": "DatasetReference"
-													}
-												],
-												"outputs": [
-													{
-														"referenceName": "Others1",
-														"type": "DatasetReference"
-													}
-												]
-											}
-										]
-									}
-								]
-							}
-						},
-						{
-							"name": "Script1",
-							"type": "Script",
-							"dependsOn": [
-								{
-									"activity": "Routefilebytype",
-									"dependencyConditions": [
-										"Succeeded"
-									]
+								"condition": {
+									"value": "@and(\n    startswith(item().name, 'SalesLT'),\n    endswith(item().name, '.txt')\n)\n",
+									"type": "Expression"
 								}
-							],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"linkedServiceName": {
-								"referenceName": "AzureSqlDatabase1",
-								"type": "LinkedServiceReference"
-							},
-							"typeProperties": {
-								"scripts": [
-									{
-										"type": "NonQuery",
-										"text": {
-											"value": "@concat('INSERT INTO dbo.PipelineAuditLog (FileName, ExecutionTimestamp) VALUES (''', item().name, ''', ''', utcnow(), ''')')",
-											"type": "Expression"
-										}
-									}
-								],
-								"scriptBlockExecutionTimeout": "02:00:00"
 							}
 						}
 					]
