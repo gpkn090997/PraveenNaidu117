@@ -47,7 +47,15 @@
 					"items": {
 						"value": "@activity('List_of_items').output.childItems",
 						"type": "Expression"
-					}
+					},
+					"activities": [
+						{
+							"name": "If Condition1",
+							"type": "IfCondition",
+							"dependsOn": [],
+							"userProperties": []
+						}
+					]
 				}
 			}
 		],
