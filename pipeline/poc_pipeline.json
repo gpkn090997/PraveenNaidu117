@@ -50,10 +50,13 @@
 					},
 					"activities": [
 						{
-							"name": "If Condition1",
-							"type": "IfCondition",
+							"name": "Wait1",
+							"type": "Wait",
 							"dependsOn": [],
-							"userProperties": []
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
 						}
 					]
 				}
