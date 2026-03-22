@@ -73,8 +73,25 @@
 										},
 										"userProperties": [],
 										"typeProperties": {
+											"source": {
+												"type": "DelimitedTextSource",
+												"storeSettings": {
+													"type": "AzureBlobFSReadSettings",
+													"recursive": true,
+													"enablePartitionDiscovery": false
+												},
+												"formatSettings": {
+													"type": "DelimitedTextReadSettings"
+												}
+											},
 											"enableStaging": false
-										}
+										},
+										"inputs": [
+											{
+												"referenceName": "DelimitedText9",
+												"type": "DatasetReference"
+											}
+										]
 									}
 								]
 							}
@@ -83,6 +100,24 @@
 				}
 			}
 		],
+		"parameters": {
+			"poc_filesystem": {
+				"type": "string",
+				"defaultValue": "project"
+			},
+			"poc_extract_directory": {
+				"type": "string",
+				"defaultValue": "Extracted_Source/AdventureWorksLTDEPOC"
+			},
+			"poc_Sales": {
+				"type": "string",
+				"defaultValue": "Sales"
+			},
+			"poc_Others": {
+				"type": "string",
+				"defaultValue": "Others"
+			}
+		},
 		"annotations": []
 	}
 }
