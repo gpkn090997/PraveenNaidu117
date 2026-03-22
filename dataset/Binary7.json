@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Extracted_Source",
+				"folderPath": "Extracted_Source/AdventureWorksLTDEPOC",
 				"fileSystem": "project"
 			}
 		}
