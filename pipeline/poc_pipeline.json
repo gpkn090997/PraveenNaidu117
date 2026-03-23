@@ -118,6 +118,10 @@
 													"p_directory": {
 														"value": "@pipeline().parameters.poc_extract_directory",
 														"type": "Expression"
+													},
+													"p_filename": {
+														"value": "@item().name",
+														"type": "Expression"
 													}
 												}
 											}
@@ -133,6 +137,10 @@
 													},
 													"p_directory": {
 														"value": "@if(and(startsWith(item().name,'SalesLT'), endsWith(item().name,'.txt')), 'Sales', 'Others')",
+														"type": "Expression"
+													},
+													"p_filename": {
+														"value": "@item().name",
 														"type": "Expression"
 													}
 												}

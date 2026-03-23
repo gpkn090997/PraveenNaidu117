@@ -12,7 +12,7 @@
 			"p_directory": {
 				"type": "string"
 			},
-			"P_filename": {
+			"p_filename": {
 				"type": "string"
 			}
 		},
@@ -22,7 +22,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().P_filename",
+					"value": "@dataset().p_filename",
 					"type": "Expression"
 				},
 				"folderPath": {
