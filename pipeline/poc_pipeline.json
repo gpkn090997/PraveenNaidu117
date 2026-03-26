@@ -57,7 +57,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@not(\n    or(\n        endsWith(item().name,'.json'), \n        or(\n            endsWith(item().name,'.xml'), \n            endsWith(item().name,'.png')\n        )\n    )\n)",
+									"value": "@and(\n   startswith(item().name,'SalesLT'),\n   endswith(item().name,'.txt')\n)\n",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
@@ -175,7 +175,7 @@
 												{
 													"type": "Query",
 													"text": {
-														"value": "@if(\n   and(startswith(item().name,'SalesLT'), endswith(item().name,'.txt')),\n   concat(\n     'INSERT INTO dbo.ADF_POC_Auditlog (file_name, exec_ts_utc) VALUES (''',\n        item().name,\n        ''',''',\n        formatDateTime(utcNow(),'yyyy-MM-dd HH:mm:ss'),\n     ''')'\n   ),\n   'SELECT 1'\n)\n\n",
+														"value": "@concat(\n  'INSERT INTO dbo.ADF_POC_AuditLog (file_name, exec_ts_utc) VALUES (''',\n     item().name,\n     ''',''',\n     formatDateTime(utcNow(),'yyyy-MM-dd HH:mm:ss'),\n  ''')'\n)\n",
 														"type": "Expression"
 													}
 												}
