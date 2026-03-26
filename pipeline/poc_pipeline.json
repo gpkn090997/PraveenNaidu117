@@ -150,7 +150,14 @@
 									{
 										"name": "Script1",
 										"type": "Script",
-										"dependsOn": [],
+										"dependsOn": [
+											{
+												"activity": "Copy data1",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
 										"policy": {
 											"timeout": "0.12:00:00",
 											"retry": 0,
@@ -168,48 +175,12 @@
 												{
 													"type": "Query",
 													"text": {
-														"value": "@concat(\n   'INSERT INTO dbo.ADF_POC_Auditlog (file_name, exec_ts_utc) VALUES(''',\n    item().name,\n    ''',''',\n    formatDateTime(utcNow(),'yyyy-MM-dd HH:mm:ss'),\n   ''')'\n)\n",
+														"value": "@if(\n   and(startswith(item().name,'SalesLT'), endswith(item().name,'.txt')),\n   concat(\n     'INSERT INTO dbo.ADF_POC_Auditlog (file_name, exec_ts_utc) VALUES (''',\n        item().name,\n        ''',''',\n        formatDateTime(utcNow(),'yyyy-MM-dd HH:mm:ss'),\n     ''')'\n   ),\n   'SELECT 1'\n)\n\n",
 														"type": "Expression"
 													}
 												}
 											],
 											"scriptBlockExecutionTimeout": "02:00:00"
-										}
-									},
-									{
-										"name": "Sales_Metadata",
-										"type": "GetMetadata",
-										"dependsOn": [
-											{
-												"activity": "Copy data1",
-												"dependencyConditions": [
-													"Succeeded"
-												]
-											}
-										],
-										"policy": {
-											"timeout": "0.12:00:00",
-											"retry": 0,
-											"retryIntervalInSeconds": 30,
-											"secureOutput": false,
-											"secureInput": false
-										},
-										"userProperties": [],
-										"typeProperties": {
-											"dataset": {
-												"referenceName": "DelimitedText10",
-												"type": "DatasetReference"
-											},
-											"fieldList": [
-												"childItems"
-											],
-											"storeSettings": {
-												"type": "AzureBlobFSReadSettings",
-												"enablePartitionDiscovery": false
-											},
-											"formatSettings": {
-												"type": "DelimitedTextReadSettings"
-											}
 										}
 									}
 								]
